@@ -1,0 +1,37 @@
+// colors
+$main-color: #4190d5;
+$main-focus: #3c7cb4;
+$secondary-color: #49c4a8;
+$menu-color: var(--blue);
+$bg-contrast: #ffffff;
+$bg-contrast-focus: #f3f3f3;
+$nav-bg-color: var(--teal);
+$bg-color: #1b1b1b;
+
+$backdrop: #1b1b1b3d;
+
+// fonts families
+$font-main: "Poppins", sans-serif;
+$font-secondary: "Poppins", sans-serif;
+// font-size
+$nav-font-size: 14px;
+
+// border-radius
+$button-radius: 30px !important;
+
+// transition
+$short-tran: 0.25s;
+
+// box-shadow
+$mobile-shadow: rgba(0, 0, 0, 0.4) 3px 3px 30px;
+
+// logo
+$logoheight: 4rem;
+
+:root {
+  --orange: #dd4f38;
+  --teal: #406b63;
+  --beige: #e9e4d028;
+  --pink: #eebfc0;
+  --blue: #132430;
+}

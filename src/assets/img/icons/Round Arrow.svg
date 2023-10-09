@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+  <g id="Groupe_74" data-name="Groupe 74" transform="translate(-1365 110) rotate(90)">
+    <g id="Oval_Copy_2" data-name="Oval Copy 2" transform="translate(-110 -1409)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1">
+      <circle cx="22" cy="22" r="22" stroke="none"/>
+      <circle cx="22" cy="22" r="21.5" fill="none"/>
+    </g>
+    <path id="Fill_1_Copy_9" data-name="Fill 1 Copy 9" d="M14.375,5.85H1.907L6.681,1.121A.669.669,0,0,0,6.7.2.608.608,0,0,0,5.819.179L.366,5.581A1.336,1.336,0,0,0,.377,7.43l5.442,5.39A.608.608,0,0,0,6.7,12.8a.668.668,0,0,0-.022-.919L1.887,7.15H14.375a.65.65,0,0,0,0-1.3Z" transform="translate(-81 -1380) rotate(180)" fill="#fff"/>
+  </g>
+</svg>

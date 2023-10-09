@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="260.425" height="272.747" viewBox="0 0 260.425 272.747">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_32" data-name="Rectangle 32" width="218.704" height="163.005" fill="#eebfc0"/>
+    </clipPath>
+  </defs>
+  <g id="Groupe_147" data-name="Groupe 147" transform="matrix(0.588, -0.809, 0.809, 0.588, 0, 176.935)" style="isolation: isolate">
+    <g id="Groupe_146" data-name="Groupe 146" clip-path="url(#clip-path)">
+      <g id="Groupe_145" data-name="Groupe 145">
+        <g id="Groupe_144" data-name="Groupe 144" clip-path="url(#clip-path)">
+          <g id="Groupe_143" data-name="Groupe 143" style="mix-blend-mode: multiply;isolation: isolate">
+            <g id="Groupe_142" data-name="Groupe 142">
+              <g id="Groupe_141" data-name="Groupe 141" clip-path="url(#clip-path)">
+                <path id="Tracé_17" data-name="Tracé 17" d="M30.4.551C20.958,1.861,12.632,11.256,6.72,20.2A40.526,40.526,0,0,0,1.292,52.7C13.363,99.333,33.777,148.579,78.86,160.5c41.082,10.867,81.809-15.69,116.068-40.873,10.794-7.934,22.559-17.523,23.685-30.89,1.691-20.085-20.567-32.707-39.3-40.039L84.951,11.785C67.457,4.94,49-2.032,30.4.551" transform="translate(0 0)" fill="#eebfc0"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

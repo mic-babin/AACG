@@ -1,0 +1,101 @@
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+@import "react-multi-carousel/lib/styles.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "./variables.scss";
+@import "./utilities.scss";
+@import "./navigation.scss";
+@import "./home.scss";
+@import "./contact.scss";
+@import "./animation.scss";
+@import "~animate.css/animate.min";
+
+html {
+  width: 100vw !important;
+  overflow-x: hidden !important;
+  scroll-behavior: auto !important;
+}
+
+body {
+  font-family: $font-main;
+  background-color: white;
+  width: 100vw !important;
+  overflow-x: hidden !important;
+}
+
+.vg-icon-closed_caption:before {
+  content: "\e006";
+}
+.vg-icon-pause:before {
+  content: "\e018";
+}
+.video-thumb .vg-icon-play_arrow:before {
+  content: url(../img/icons/play.svg) !important;
+  transform: scale(1.2) translate(-20%, -10%) !important;
+
+  &:hover {
+    transform: translate(-20%, -10%) !important;
+  }
+}
+
+.video-thumb .show-hover .vg-icon-play_arrow:before {
+  content: "\e01b" !important;
+  transform: scale(1) !important;
+}
+.vg-icon-repeat:before {
+  content: "\e023";
+}
+.vg-icon-replay:before {
+  content: "\e025";
+}
+.vg-icon-skip_next:before {
+  content: "\e027";
+}
+.vg-icon-skip_previous:before {
+  content: "\e028";
+}
+.vg-icon-stop:before {
+  content: "\e02a";
+}
+.vg-icon-volume_down:before {
+  content: "\e030";
+}
+.vg-icon-volume_mute:before {
+  content: "\e031";
+}
+.vg-icon-volume_off:before {
+  content: "\e032";
+}
+.vg-icon-volume_up:before {
+  content: "\e033";
+}
+.vg-icon-hd:before {
+  content: "\e035";
+}
+.vg-icon-forward_10:before {
+  content: "\e038";
+}
+.vg-icon-forward_30:before {
+  content: "\e039";
+}
+.vg-icon-replay_10:before {
+  content: "\e03b";
+}
+.vg-icon-replay_30:before {
+  content: "\e03c";
+}
+.vg-icon-fullscreen:before {
+  content: "\e20c";
+}
+.vg-icon-fullscreen_exit:before {
+  content: "\e20d";
+}
+vg-player video {
+  width: 100%;
+  height: 100%;
+}
+
+.react-multi-carousel-dot {
+  border: white !important;
+}

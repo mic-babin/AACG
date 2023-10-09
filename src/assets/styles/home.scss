@@ -1,0 +1,44 @@
+.home-hero-wrapper {
+  background: var(--teal);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-y: visible;
+}
+
+.hero-cta {
+  transform: translateX(-405px);
+  span {
+    transition: all $short-tran ease-in;
+    font-size: 1.25rem;
+  }
+
+  &::before {
+    content: "";
+    background-color: $bg-contrast;
+    height: 1px;
+    width: 400px;
+    transform: translateX(-20px);
+  }
+
+  &:hover {
+    span {
+      color: $main-color;
+      transition: all $short-tran ease-in;
+    }
+    svg {
+      fill: $main-color;
+      transition: all $short-tran ease-in;
+    }
+  }
+}
+
+.pictures-wrapper {
+  background-color: #dddddd;
+  height: 120vh;
+}
+
+svg {
+  fill: $bg-contrast;
+  transition: all $short-tran ease-in;
+}

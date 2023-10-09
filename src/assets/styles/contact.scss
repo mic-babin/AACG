@@ -1,0 +1,29 @@
+input[type="email"],
+input[type="text"],
+textarea {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0.75rem 1.5rem 0.5rem 0.75rem;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  color: black;
+  border: 1.5px solid black;
+  border-radius: 4px;
+  outline: 0;
+  background-color: #ffffff;
+  font-family: $font-secondary !important;
+  font-weight: 500;
+  font-size: 13px !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1; /* Firefox */
+}
