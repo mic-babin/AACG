@@ -47,19 +47,16 @@ const HeroCarousel = ({ heroArr }) => {
     autoPlaySpeed: 3000,
   }
 
-  //   const CustomDot = ({ index, onClick, active }) => {
-  //     return (
-  //       <button
-  //         onClick={e => {
-  //           onClick()
-  //           e.preventDefault()
-  //         }}
-  //         className={active ? "custom-dot--active" : "custom-dot"}
-  //       >
-  //         {React.Children.toArray(heroArr)[index]}
-  //       </button>
-  //     )
-  //   }
+  const CustomDot = ({ onClick, ...rest }) => {
+    const { active } = rest
+
+    return (
+      <button
+        className={active ? "active dots" : "inactive dots"}
+        onClick={() => onClick()}
+      ></button>
+    )
+  }
 
   const getCaptionString = image => {
     if (image?.caption?.slice(3, image?.caption?.length - 5).length > 4) {
@@ -86,6 +83,7 @@ const HeroCarousel = ({ heroArr }) => {
     return pickedItems
   }
 
+  console.log(images)
   useEffect(() => {
     setImages(pickRandomItems(heroArr, 5))
 
@@ -109,7 +107,7 @@ const HeroCarousel = ({ heroArr }) => {
               autoPlay={customOptions.autoPlay}
               autoPlaySpeed={customOptions.autoPlaySpeed}
               showDots={true}
-              // customDot={<CustomDot />}
+              customDot={<CustomDot />}
             >
               {images.map((image, index) => (
                 <div key={image.id + index} className="custom-height pb-5">

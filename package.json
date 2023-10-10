@@ -48,6 +48,7 @@
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-multi-carousel": "^2.8.4",
+    "react-scroll-parallax": "^3.4.2",
     "sass": "^1.69.0",
     "styled-components": "^6.0.8",
     "typeface-merriweather": "1.1.13",
