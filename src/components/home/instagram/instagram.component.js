@@ -3,6 +3,7 @@ import Red5Src from "../../../assets/img/shapes/red-5.svg"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Style } from "./instagram.style"
 import { useStaticQuery, graphql } from "gatsby"
+import { sortByDescription } from "../../../utils/sort-by-description"
 
 const Instagram = ({ followTitle, followText }) => {
   const wrapperRef = useRef(null)
@@ -14,30 +15,14 @@ const Instagram = ({ followTitle, followText }) => {
           description
           title
           caption
-          gatsbyImage(width: 1000)
+          gatsbyImage(width: 300, placeholder: BLURRED)
         }
       }
     }
   `)
-  const sortImagesByDescription = images => {
-    // Use the sort method to sort the images array
-    images.sort((a, b) => {
-      // Extract descriptions from the images or set them to empty strings if undefined
-      const descriptionA = a.description || ""
-      const descriptionB = b.description || ""
-
-      // Use localeCompare to perform a case-insensitive string comparison
-      return descriptionA.localeCompare(descriptionB, undefined, {
-        sensitivity: "base",
-      })
-    })
-
-    // Return the sorted array
-    return images
-  }
 
   const imagesArr = data.allWpMediaItem.nodes
-  const images = sortImagesByDescription(imagesArr)
+  const images = sortByDescription(imagesArr)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -113,7 +98,11 @@ const Instagram = ({ followTitle, followText }) => {
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                <GatsbyImage image={getImage(img)} className={`img img-${i}`} />
+                <GatsbyImage
+                  image={getImage(img)}
+                  className={`img img-${i}`}
+                  alt={img.title}
+                />
               </a>
             </div>
           </div>

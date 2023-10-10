@@ -4,7 +4,6 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import ArrowSrc from "../../../assets/img/icons/arrow-down.svg"
 
 const Employee = ({ employee }) => {
-  console.log(employee)
   const [collapse, setCollapse] = useState(true)
   const toggleCollapse = () => {
     setCollapse(!collapse)
@@ -135,6 +134,7 @@ const Employee = ({ employee }) => {
           ></p>
           <a
             href={`tel:${getTel(employee)}`}
+            aria-label="tel"
             className="contact m-0 d-block"
             dangerouslySetInnerHTML={{
               __html: getTel(employee),
@@ -142,6 +142,7 @@ const Employee = ({ employee }) => {
           ></a>
           <a
             href={`mailto:${getEmail(employee)}`}
+            aria-label="email"
             className="contact m-0 d-block"
             dangerouslySetInnerHTML={{
               __html: getEmail(employee),

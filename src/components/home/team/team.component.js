@@ -4,7 +4,6 @@ import TealSrc from "../../../assets/img/shapes/teal-1.svg"
 import PinkSrc from "../../../assets/img/shapes/pink-3.svg"
 import { useStaticQuery, graphql } from "gatsby"
 import { Style } from "./team.styles"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { v4 as uuidv4 } from "uuid"
 import Employee from "./employee.component"
 const Team = ({ employeeTitle, employeeText, telephone, email }) => {
@@ -25,7 +24,7 @@ const Team = ({ employeeTitle, employeeText, telephone, email }) => {
           content
           featuredImage {
             node {
-              gatsbyImage(width: 1000, quality: 100)
+              gatsbyImage(width: 300, quality: 100, placeholder: BLURRED)
             }
           }
         }
@@ -60,88 +59,6 @@ const Team = ({ employeeTitle, employeeText, telephone, email }) => {
       window.removeEventListener("scroll", handleScroll)
     }
   }, [])
-
-  //   const getMedia = id => {
-  //     return (
-  //       media?.filter(m => m.id === id)[0]?.source_url ||
-  //       "../../../../assets/img/icons/no-image.svg"
-  //     )
-  //   }
-
-  const getTitle = employee => {
-    let infoArr = getInfo(employee)
-    let title =
-      infoArr[infoArr?.findIndex(element => element?.includes("title"))]?.split(
-        "="
-      )[1]
-    title = title.split("</p>")[0]
-    return title
-  }
-
-  const getInfo = data => {
-    let info = data?.content?.slice(1, data?.content?.length - 5)
-    let infoArr = info?.split("<p>")
-    return infoArr
-  }
-
-  const getTags = employee => {
-    let infoArr = getInfo(employee)
-    let tags =
-      infoArr[infoArr?.findIndex(element => element?.includes("tags"))]?.split(
-        "="
-      )[1]
-    tags = tags?.slice(0, tags?.length - 8)
-    return tags
-  }
-
-  const getBio = employee => {
-    let infoArr = getInfo(employee)
-    let bio =
-      infoArr[
-        infoArr?.findIndex(element => element?.includes("biography1"))
-      ]?.split("=")[1]
-    bio = bio?.slice(0, bio?.length - 8)
-    return bio
-  }
-
-  const getBio2 = employee => {
-    let infoArr = getInfo(employee)
-    let bio =
-      infoArr[
-        infoArr?.findIndex(element => element?.includes("biography2"))
-      ]?.split("=")[1]
-    bio = bio?.slice(0, bio?.length - 8)
-    return bio
-  }
-
-  const getEmail = employee => {
-    let infoArr = getInfo(employee)
-    let email =
-      infoArr[infoArr?.findIndex(element => element?.includes("email"))]?.split(
-        "="
-      )[1]
-    email = email?.slice(0, email?.length - 8)
-    return email
-  }
-
-  const getTel = employee => {
-    let infoArr = getInfo(employee)
-    let tel =
-      infoArr[
-        infoArr?.findIndex(element => element?.includes("telephone"))
-      ]?.split("=")[1]
-    return tel
-  }
-
-  const isCollapsed = employee => {
-    return employee.isCollapsed
-  }
-
-  const toggleCollapse = employee => {
-    console.log(employee)
-    employee.isCollapsed = !employee.isCollapsed
-    return employee.isCollapsed
-  }
 
   const getEvenEmployee = arr => {
     let even = arr?.filter((a, i) => i % 2 === 0)
@@ -189,6 +106,7 @@ const Team = ({ employeeTitle, employeeText, telephone, email }) => {
               ></p>
               <p className="pe-lg-5 mb-1 me-lg-4">
                 <a
+                  aria-label="email"
                   href={`mailto:${email}`}
                   dangerouslySetInnerHTML={{ __html: email }}
                 ></a>
@@ -197,6 +115,7 @@ const Team = ({ employeeTitle, employeeText, telephone, email }) => {
                 <a
                   href={`tel:${telephone}`}
                   dangerouslySetInnerHTML={{ __html: telephone }}
+                  aria-label="tel"
                 ></a>
               </p>
             </div>

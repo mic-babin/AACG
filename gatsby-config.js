@@ -7,6 +7,13 @@
  */
 
 module.exports = {
+  siteMetadata: {
+    title: `Agence Artistique Corinne Giguère`,
+    description: `Offrir à nos artistes des services professionnels et compétitifs, dans un climat d'écoute et d'ouverture.`,
+    twitterUsername: `@agencecorinnegiguere`,
+    image: `mz.svg`,
+    siteUrl: `https://agencecg.com/`,
+  },
   /**
    * Adding plugins to this array adds them to your Gatsby site.
    *

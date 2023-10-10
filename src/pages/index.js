@@ -116,7 +116,7 @@ export const pageQuery = graphql`
         description
         title
         caption
-        gatsbyImage(width: 2000)
+        gatsbyImage(width: 1000, placeholder: BLURRED)
       }
     }
   }

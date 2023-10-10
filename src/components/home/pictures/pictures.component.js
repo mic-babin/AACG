@@ -3,6 +3,7 @@ import RedSrc from "../../../assets/img/shapes/red-1.svg"
 import { Style } from "./pictures.styles"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { sortByDescription } from "../../../utils/sort-by-description"
 
 const Pictures = () => {
   const wrapperRef = useRef(null)
@@ -14,31 +15,14 @@ const Pictures = () => {
           description
           title
           caption
-          gatsbyImage(width: 1000)
+          gatsbyImage(width: 1000, placeholder: BLURRED)
         }
       }
     }
   `)
 
-  const sortImagesByDescription = images => {
-    // Use the sort method to sort the images array
-    images.sort((a, b) => {
-      // Extract descriptions from the images or set them to empty strings if undefined
-      const descriptionA = a.description || ""
-      const descriptionB = b.description || ""
-
-      // Use localeCompare to perform a case-insensitive string comparison
-      return descriptionA.localeCompare(descriptionB, undefined, {
-        sensitivity: "base",
-      })
-    })
-
-    // Return the sorted array
-    return images
-  }
-
   const imagesArr = data.allWpMediaItem.nodes
-  const images = sortImagesByDescription(imagesArr)
+  const images = sortByDescription(imagesArr)
 
   useEffect(() => {
     const handleScroll = () => {
