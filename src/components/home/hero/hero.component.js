@@ -10,7 +10,7 @@ import {
 
 const HomeHero = ({ title, media }) => {
   const scrollTo = () => {
-    // Implement your scroll to logic here
+    document.getElementById("about").scrollIntoView({ behavior: "smooth" })
   }
 
   return (
