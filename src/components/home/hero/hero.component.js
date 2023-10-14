@@ -27,7 +27,8 @@ const HomeHero = ({ title, media }) => {
                       className={`overflow-hidden d-inline-block me-3`}
                       dangerouslySetInnerHTML={{ __html: word }}
                       initial="hidden"
-                      animate="visible"
+                      whileInView="visible"
+                      viewport={{ once: true }}
                       variants={littleFadeUpVariants}
                       transition={{ duration: 0.5, delay: 1.5 + i / 10 }}
                     ></motion.span>
@@ -42,14 +43,16 @@ const HomeHero = ({ title, media }) => {
                   src={ArrowSrc}
                   alt="Arrow Down"
                   initial="hidden"
-                  animate="visible"
+                  whileInView="visible"
+                  viewport={{ once: true }}
                   variants={veryLittleFadeUpVariants}
                   transition={{ duration: 0.5, delay: 2 }}
                 />
                 <motion.h4
                   className="ms-3 mb-0"
                   initial="hidden"
-                  animate="visible"
+                  whileInView="visible"
+                  viewport={{ once: true }}
                   variants={veryLittleFadeUpVariants}
                   transition={{ duration: 0.5, delay: 2 }}
                 >

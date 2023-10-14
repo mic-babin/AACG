@@ -33,7 +33,8 @@ const HeroCarousel = ({ heroArr }) => {
         <motion.div
           className="red-3"
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true }}
           variants={fadeUpVariants}
           transition={{ duration: 0.75, delay: 1.75 }}
         >
@@ -47,6 +48,7 @@ const HeroCarousel = ({ heroArr }) => {
         className="carousel-wrapper"
         initial="hidden"
         animate="visible"
+        viewport={{ once: true }}
         variants={fadeRightCarouselVariants}
         transition={{ duration: 0.75, delay: 1 }}
       >
