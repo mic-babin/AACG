@@ -4,9 +4,17 @@ import { Style } from "./pictures.styles"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { sortByDescription } from "../../../utils/sort-by-description"
+import { motion } from "framer-motion"
+import { Parallax } from "react-scroll-parallax"
+import { fadeUpVariants } from "../../../assets/animations/animations"
 
 const Pictures = () => {
   const wrapperRef = useRef(null)
+  const animateIn = {
+    initial: "hidden",
+    whileInView: "visible",
+    viewport: { once: true },
+  }
 
   const data = useStaticQuery(graphql`
     query {
@@ -24,27 +32,15 @@ const Pictures = () => {
   const imagesArr = data.allWpMediaItem.nodes
   const images = sortByDescription(imagesArr)
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const red = wrapperRef.current.querySelector(".red-1")
-  //     let rateRed = -window.pageYOffset * 0.1
-  //     if (red) {
-  //       red.style.transform = `translate3d(0, ${rateRed}px, 0)`
-  //     }
-  //   }
-
-  //   window.addEventListener("scroll", handleScroll)
-
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll)
-  //   }
-  // }, [])
-
   return (
     <Style>
       <div className="row p-0" ref={wrapperRef}>
         <div className="col-lg-6 p-0">
-          <div>
+          <motion.div
+            {...animateIn}
+            variants={fadeUpVariants}
+            transition={{ duration: 0.5 }}
+          >
             <GatsbyImage
               image={getImage(images[0])}
               alt={images[0]?.caption.slice(3)}
@@ -57,15 +53,27 @@ const Pictures = () => {
                 __html: images[0]?.caption.slice(3),
               }}
             ></div>
-          </div>
+          </motion.div>
         </div>
         <div className="col-lg-6 px-5 move-down d-none d-lg-block">
           <div className="p-holder">
-            <div className="red-1">
-              <img src={RedSrc} className="" alt="" />
-            </div>
+            <motion.div
+              className="red-1"
+              {...animateIn}
+              variants={fadeUpVariants}
+              transition={{ duration: 0.5 }}
+            >
+              <Parallax translateY={[-80, 80]}>
+                <img src={RedSrc} alt="Red Shape" />
+              </Parallax>
+            </motion.div>
           </div>
-          <div className="px-3">
+          <motion.div
+            className="px-3"
+            {...animateIn}
+            variants={fadeUpVariants}
+            transition={{ duration: 0.5 }}
+          >
             <GatsbyImage
               image={getImage(images[1])}
               alt={images[1]?.caption.slice(3)}
@@ -77,7 +85,7 @@ const Pictures = () => {
                 __html: images[1]?.caption.slice(3),
               }}
             ></div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </Style>
