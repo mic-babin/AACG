@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 export const Style = styled.div`
   overflow: visible;
+
   .ovy {
     position: absolute;
     top: 0;

@@ -18,15 +18,7 @@ const Layout = ({ isHomePage, children }) => {
     }
   `)
 
-  return (
-    <ParallaxProvider>
-      <div className="global-wrapper" data-is-root-path={isHomePage}>
-        <header className="global-header"></header>
-
-        <main>{children}</main>
-      </div>
-    </ParallaxProvider>
-  )
+  return <main>{children}</main>
 }
 
 export default Layout

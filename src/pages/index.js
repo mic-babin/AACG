@@ -8,6 +8,7 @@ import About from "../components/home/about/about.component"
 import Pictures from "../components/home/pictures/pictures.component"
 import Team from "../components/home/team/team.component"
 import Instagram from "../components/home/instagram/instagram.component"
+import { ParallaxProvider } from "react-scroll-parallax"
 
 const Home = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -72,24 +73,26 @@ const Home = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="Agence Artistique Corinne Giguère" />
-      <HomeHero title={title} media={media} />
-      <About
-        missionTitle={missionTitle}
-        missionSubtitle={missionSubtitle}
-        missionText1={missionText1}
-        missionText2={missionText2}
-        missionText3={missionText3}
-        missionText4={missionText4}
-      />
-      <Pictures />
-      <Team
-        employeeTitle={employeeTitle}
-        employeeText={employeeText}
-        telephone={telephone}
-        email={email}
-      />
-      <Instagram followTitle={followTitle} followText={followText} />
+      <ParallaxProvider>
+        <Seo title="Agence Artistique Corinne Giguère" />
+        <HomeHero title={title} media={media} />
+        <About
+          missionTitle={missionTitle}
+          missionSubtitle={missionSubtitle}
+          missionText1={missionText1}
+          missionText2={missionText2}
+          missionText3={missionText3}
+          missionText4={missionText4}
+        />
+        <Pictures />
+        {/* <Team
+          employeeTitle={employeeTitle}
+          employeeText={employeeText}
+          telephone={telephone}
+          email={email}
+        />
+        <Instagram followTitle={followTitle} followText={followText} /> */}
+      </ParallaxProvider>
     </Layout>
   )
 }

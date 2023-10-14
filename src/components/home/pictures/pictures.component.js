@@ -24,21 +24,21 @@ const Pictures = () => {
   const imagesArr = data.allWpMediaItem.nodes
   const images = sortByDescription(imagesArr)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const red = wrapperRef.current.querySelector(".red-1")
-      let rateRed = -window.pageYOffset * 0.1
-      if (red) {
-        red.style.transform = `translate3d(0, ${rateRed}px, 0)`
-      }
-    }
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const red = wrapperRef.current.querySelector(".red-1")
+  //     let rateRed = -window.pageYOffset * 0.1
+  //     if (red) {
+  //       red.style.transform = `translate3d(0, ${rateRed}px, 0)`
+  //     }
+  //   }
 
-    window.addEventListener("scroll", handleScroll)
+  //   window.addEventListener("scroll", handleScroll)
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [])
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll)
+  //   }
+  // }, [])
 
   return (
     <Style>

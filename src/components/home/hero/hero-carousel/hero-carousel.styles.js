@@ -13,16 +13,16 @@ export const Style = styled.div`
     }
   }
 
-  #fade-right {
-    opacity: 1;
-  }
-
   .dots {
     height: 12px;
     width: 12px;
     border: 1px solid white;
     padding: 0;
     margin: 2rem 0.5rem;
+
+    &.active {
+      background-color: white;
+    }
   }
   @media only screen and (max-width: 1399px) {
     .carousel-wrapper {

@@ -12,21 +12,6 @@ const About = ({
   missionText4,
 }) => {
   const wrapperRef = useRef(null)
-  useEffect(() => {
-    const handleScroll = () => {
-      const beige = wrapperRef.current.querySelector(".beige-2")
-      let rateBeige = -window.pageYOffset * 0.1
-      if (beige) {
-        beige.style.transform = `translateY(${rateBeige}px)`
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [])
   return (
     <Style>
       <span id="about"></span>

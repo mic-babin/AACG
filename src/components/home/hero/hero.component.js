@@ -2,6 +2,11 @@ import React from "react"
 import { Style } from "./hero.styles"
 import ArrowSrc from "../../../assets/img/icons/WhiteRoundArrow.png"
 import HeroCarousel from "./hero-carousel/hero-carousel.component"
+import { motion } from "framer-motion"
+import {
+  veryLittleFadeUpVariants,
+  littleFadeUpVariants,
+} from "../../../assets/animations/animations"
 
 const HomeHero = ({ title, media }) => {
   const scrollTo = () => {
@@ -16,21 +21,40 @@ const HomeHero = ({ title, media }) => {
             <div className="ovy">
               <h1 className="ps-7 mt-3">
                 {title.split(" ").map((word, i) => (
-                  <React.Fragment key={i}>
-                    {" "}
-                    <span
-                      className={`overflow-hidden d-inline-block  me-3`}
+                  <span className="overflow-hidden d-inline-block me-3">
+                    <motion.span
+                      key={i}
+                      className={`overflow-hidden d-inline-block me-3`}
                       dangerouslySetInnerHTML={{ __html: word }}
-                    ></span>
-                  </React.Fragment>
+                      initial="hidden"
+                      animate="visible"
+                      variants={littleFadeUpVariants}
+                      transition={{ duration: 0.5, delay: 1.5 + i / 10 }}
+                    ></motion.span>
+                  </span>
                 ))}
               </h1>
               <div
                 className="d-flex scroll-down align-items-center ps-7 float"
                 onClick={scrollTo}
               >
-                <img src={ArrowSrc} alt="" className="" />
-                <h4 className="ms-3 mb-0 ">Défiler</h4>
+                <motion.img
+                  src={ArrowSrc}
+                  alt="Arrow Down"
+                  initial="hidden"
+                  animate="visible"
+                  variants={veryLittleFadeUpVariants}
+                  transition={{ duration: 0.5, delay: 2 }}
+                />
+                <motion.h4
+                  className="ms-3 mb-0"
+                  initial="hidden"
+                  animate="visible"
+                  variants={veryLittleFadeUpVariants}
+                  transition={{ duration: 0.5, delay: 2 }}
+                >
+                  Défiler
+                </motion.h4>
               </div>
             </div>
           </div>
