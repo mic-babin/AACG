@@ -63,7 +63,7 @@ const About = ({
                         className={`overflow-hidden d-inline-block me-3`}
                         {...animateIn}
                         variants={littleFadeUpVariants}
-                        transition={{ duration: 0.5, delay: 0.25 }}
+                        transition={{ duration: 0.5, delay: 0.5 + i / 10 }}
                       >
                         {word}
                       </motion.span>

@@ -6,6 +6,15 @@ import { useStaticQuery, graphql } from "gatsby"
 import { Style } from "./team.styles"
 import { v4 as uuidv4 } from "uuid"
 import Employee from "./employee.component"
+import { getOddEmployee, getEvenEmployee } from "./team.utils"
+import { Parallax } from "react-scroll-parallax"
+import { motion } from "framer-motion"
+import {
+  littleFadeUpVariants,
+  fadeLeftVariants,
+  veryLittleFadeUpVariants,
+} from "../../../assets/animations/animations"
+
 const Team = ({ employeeTitle, employeeText, telephone, email }) => {
   const wrapperRef = useRef(null)
 
@@ -32,61 +41,58 @@ const Team = ({ employeeTitle, employeeText, telephone, email }) => {
     }
   `)
 
+  const animateIn = {
+    initial: "hidden",
+    whileInView: "visible",
+    viewport: { once: true },
+  }
+
+  const textAnimation = {
+    ...animateIn,
+    variants: veryLittleFadeUpVariants,
+    transition: { duration: 0.5, delay: 0.5 },
+  }
+
   const employees = data.allWpPost.nodes
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const pink = wrapperRef.current?.querySelector(".pink-3")
-      let ratePink = -window.pageYOffset * 0.15
-      if (pink) {
-        pink.style.transform = `translate3d(0, ${ratePink}px, 0)`
-      }
-      const beige = wrapperRef.current?.querySelector(".beige-3")
-      let rateBeige = -window.pageYOffset * 0.15
-      if (beige) {
-        beige.style.transform = `translate3d(0, ${rateBeige}px, 0)`
-      }
-      const teal = wrapperRef.current?.querySelector(".teal-1")
-      let rateTeal = -window.pageYOffset * 0.33
-      if (teal) {
-        teal.style.transform = `translate3d(0, ${rateTeal}px, 0)`
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [])
-
-  const getEvenEmployee = arr => {
-    let even = arr?.filter((a, i) => i % 2 === 0)
-    return even
-  }
-
-  const getOddEmployee = arr => {
-    let odd = arr?.filter((a, i) => i % 2 === 1)
-    return odd
-  }
-
   return (
-    <Style className="bg-beige" ref={wrapperRef}>
+    <Style className="bg-beige overflow-hidden" ref={wrapperRef}>
       <div className="p-holder">
-        <div className="beige-3">
-          <img src={Beige3Src} className="" alt="Shape" />
-        </div>
-        <div className="teal-1">
-          <img src={TealSrc} className="" alt="" />
-        </div>
+        <motion.div
+          className="beige-3"
+          {...animateIn}
+          variants={littleFadeUpVariants}
+          transition={{ duration: 0.75 }}
+        >
+          <Parallax translateY={[1, -100]}>
+            <img src={Beige3Src} alt="Beige Shape" />
+          </Parallax>
+        </motion.div>
+        <motion.div
+          className="teal-1"
+          {...animateIn}
+          variants={littleFadeUpVariants}
+          transition={{ duration: 0.75 }}
+        >
+          <Parallax translateY={[1, -60]}>
+            <img src={TealSrc} alt="Teal Shape" />
+          </Parallax>
+        </motion.div>
       </div>
       <div className="container py-5">
         <div className="row p-header mt-lg-5 pb-200">
           <div className="col-lg-5 p-nav mt-3">
             <div className="p-holder ps-7">
-              <div className="pink-3">
-                <img src={PinkSrc} className="" alt="" />
-              </div>
+              <motion.div
+                className="pink-3"
+                {...animateIn}
+                variants={littleFadeUpVariants}
+                transition={{ duration: 0.75 }}
+              >
+                <Parallax translateY={[0, -30]}>
+                  <img src={PinkSrc} alt="Pink Shape" />
+                </Parallax>
+              </motion.div>
             </div>
             <div className="ps-7">
               <h1 className="text-black">
@@ -94,30 +100,39 @@ const Team = ({ employeeTitle, employeeText, telephone, email }) => {
                   {employeeTitle?.split(" ").map((word, i) => (
                     <span
                       key={i}
-                      className={`d-block me-3`}
-                      dangerouslySetInnerHTML={{ __html: word }}
-                    ></span>
+                      className={`d-inline-block me-3 overflow-hidden`}
+                    >
+                      <motion.span
+                        className={`overflow-hidden d-inline-block me-3`}
+                        {...animateIn}
+                        variants={littleFadeUpVariants}
+                        transition={{ duration: 0.5, delay: 0.5 + i / 10 }}
+                      >
+                        {word}
+                      </motion.span>
+                    </span>
                   ))}
                 </span>
               </h1>
-              <p
+              <motion.p
                 dangerouslySetInnerHTML={{ __html: employeeText }}
                 className="pe-lg-5 mt-5 me-lg-4 "
-              ></p>
-              <p className="pe-lg-5 mb-1 me-lg-4">
+                {...textAnimation}
+              ></motion.p>
+              <motion.p className="pe-lg-5 mb-1 me-lg-4" {...textAnimation}>
                 <a
                   aria-label="email"
                   href={`mailto:${email}`}
                   dangerouslySetInnerHTML={{ __html: email }}
                 ></a>
-              </p>
-              <p className="pe-lg-5 mb-1 me-lg-4">
+              </motion.p>
+              <motion.p className="pe-lg-5 mb-1 me-lg-4" {...textAnimation}>
                 <a
                   href={`tel:${telephone}`}
                   dangerouslySetInnerHTML={{ __html: telephone }}
                   aria-label="tel"
                 ></a>
-              </p>
+              </motion.p>
             </div>
           </div>
           <div className="col-lg-7 pt-5">

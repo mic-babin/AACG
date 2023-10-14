@@ -85,13 +85,13 @@ const Home = ({ data, location }) => {
           missionText4={missionText4}
         />
         <Pictures />
-        {/* <Team
+        <Team
           employeeTitle={employeeTitle}
           employeeText={employeeText}
           telephone={telephone}
           email={email}
         />
-        <Instagram followTitle={followTitle} followText={followText} /> */}
+        {/* <Instagram followTitle={followTitle} followText={followText} />  */}
       </ParallaxProvider>
     </Layout>
   )

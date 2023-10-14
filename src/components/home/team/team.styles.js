@@ -1,6 +1,7 @@
 import styled from "styled-components"
+import { motion } from "framer-motion"
 
-export const Style = styled.div`
+export const Style = styled(motion.div)`
   h4 {
     font-size: 25px !important;
     font-weight: 500 !important;
@@ -48,6 +49,10 @@ export const Style = styled.div`
   .pb-200 {
     padding-bottom: 200px;
   }
+
+  .equipe-collapsible:hover {
+    background-color: transparent;
+  }
   @media only screen and (max-width: 575px) {
     .pb-200 {
       padding-bottom: 0px !important;
@@ -56,19 +61,19 @@ export const Style = styled.div`
 
   .pink-3 {
     position: absolute;
-    top: 400px;
+    top: 100px;
     left: 170px;
     z-index: -1;
   }
   .beige-3 {
     position: absolute;
-    top: 1600px;
+    top: 1000px;
     left: -80px;
     z-index: -1;
   }
   .teal-1 {
     position: absolute;
-    top: 2630px;
+    top: 1330px;
     left: 130px;
     z-index: -1;
   }

@@ -2,79 +2,36 @@ import React, { useState } from "react"
 import { Style } from "./team.styles"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import ArrowSrc from "../../../assets/img/icons/arrow-down.svg"
-
+import {
+  getTitle,
+  getTags,
+  getBio,
+  getBio2,
+  getTel,
+  getEmail,
+} from "./team.utils"
+import { fadeRightVariants } from "../../../assets/animations/animations"
+import { motion, useAnimation } from "framer-motion"
 const Employee = ({ employee }) => {
-  const [collapse, setCollapse] = useState(true)
-  const toggleCollapse = () => {
-    setCollapse(!collapse)
-  }
-  const getTitle = employee => {
-    let infoArr = getInfo(employee)
-    let title =
-      infoArr[infoArr?.findIndex(element => element?.includes("title"))]?.split(
-        "="
-      )[1]
-    title = title.split("</p>")[0]
-    return title
-  }
+  const [isOpen, setIsOpen] = useState(false)
+  const controls = useAnimation()
 
-  const getInfo = data => {
-    let info = data?.content?.slice(1, data?.content?.length - 5)
-    let infoArr = info?.split("<p>")
-    return infoArr
-  }
+  const toggleCollapsible = async () => {
+    setIsOpen(!isOpen)
 
-  const getTags = employee => {
-    let infoArr = getInfo(employee)
-    let tags =
-      infoArr[infoArr?.findIndex(element => element?.includes("tags"))]?.split(
-        "="
-      )[1]
-    tags = tags?.slice(0, tags?.length - 8)
-    return tags
-  }
-
-  const getBio = employee => {
-    let infoArr = getInfo(employee)
-    let bio =
-      infoArr[
-        infoArr?.findIndex(element => element?.includes("biography1"))
-      ]?.split("=")[1]
-    bio = bio?.slice(0, bio?.length - 8)
-    return bio
-  }
-
-  const getBio2 = employee => {
-    let infoArr = getInfo(employee)
-    let bio =
-      infoArr[
-        infoArr?.findIndex(element => element?.includes("biography2"))
-      ]?.split("=")[1]
-    bio = bio?.slice(0, bio?.length - 8)
-    return bio
-  }
-
-  const getEmail = employee => {
-    let infoArr = getInfo(employee)
-    let email =
-      infoArr[infoArr?.findIndex(element => element?.includes("email"))]?.split(
-        "="
-      )[1]
-    email = email?.slice(0, email?.length - 8)
-    return email
-  }
-
-  const getTel = employee => {
-    let infoArr = getInfo(employee)
-    let tel =
-      infoArr[
-        infoArr?.findIndex(element => element?.includes("telephone"))
-      ]?.split("=")[1]
-    return tel
+    // Use Framer Motion to animate the opening/closing of the collapsible content
+    await controls.start({ height: isOpen ? 0 : "auto" })
   }
 
   return (
-    <Style className="pb-5 mb-5">
+    <Style
+      className="pb-5 mb-5"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={fadeRightVariants}
+      transition={{ duration: 0.75, delay: 1 }}
+    >
       <div className="mx-3 ">
         <div className="bg-blue my-3 d-flex align-items-center">
           <GatsbyImage
@@ -91,7 +48,7 @@ const Employee = ({ employee }) => {
         <button
           type="button"
           className="w-100 equipe-collapsible px-0"
-          onClick={() => toggleCollapse()}
+          onClick={toggleCollapsible}
         >
           <div className="d-flex justify-content-between align-items-start">
             <div>
@@ -114,12 +71,19 @@ const Employee = ({ employee }) => {
                 }}
               ></p>
             </div>
-            <div className={collapse ? "" : "flipped"}>
+            <div className={!isOpen ? "" : "flipped"}>
               <img className="arrow my-2" src={ArrowSrc} alt="arrow" />
             </div>
           </div>
         </button>
-        <div className={`collapse ${collapse ? "" : "show"}`}>
+        <motion.div
+          initial={{ height: 0 }}
+          animate={controls}
+          transition={{ duration: 0.5 }}
+          style={{
+            overflow: "hidden",
+          }}
+        >
           <p
             className="pt-3 pb-1 small top-line"
             dangerouslySetInnerHTML={{
@@ -148,7 +112,7 @@ const Employee = ({ employee }) => {
               __html: getEmail(employee),
             }}
           ></a>
-        </div>
+        </motion.div>
       </div>
     </Style>
   )

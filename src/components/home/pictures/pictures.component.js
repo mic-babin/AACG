@@ -63,7 +63,7 @@ const Pictures = () => {
               variants={fadeUpVariants}
               transition={{ duration: 0.5 }}
             >
-              <Parallax translateY={[-80, 80]}>
+              <Parallax translateY={[-80, 50]}>
                 <img src={RedSrc} alt="Red Shape" />
               </Parallax>
             </motion.div>

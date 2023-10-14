@@ -11,7 +11,11 @@ export const veryLittleFadeUpVariants = {
   visible: { opacity: 1, y: 0 },
 }
 export const fadeRightCarouselVariants = {
-  hidden: { opacity: 0, y: 120, x: "50vw" },
+  hidden: { opacity: 0, y: 120, x: "30vw" },
+  visible: { opacity: 1, x: 0 },
+}
+export const fadeRightVariants = {
+  hidden: { opacity: 0, x: 200 },
   visible: { opacity: 1, x: 0 },
 }
 export const fadeLeftVariants = {
