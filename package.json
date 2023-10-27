@@ -27,6 +27,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@netlify/functions": "^2.3.0",
     "animate.css": "^4.1.1",
     "babel-plugin-styled-components": "^2.1.4",
     "bootstrap": "^5.3.2",
@@ -44,6 +45,7 @@
     "gatsby-transformer-sharp": "^5.3.1",
     "html-react-parser": "^3.0.4",
     "lodash": "^4.17.20",
+    "nodemailer": "^6.9.7",
     "postcss": "^8.2.10",
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.1",
