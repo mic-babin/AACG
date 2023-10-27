@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const Style = styled.div`
   /* overflow-x: hidden; */
-  margin-bottom: 1000px;
+
   button {
     font-size: 14px !important;
     letter-spacing: 1px !important;
