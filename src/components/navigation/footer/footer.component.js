@@ -7,7 +7,7 @@ import FbSrc from "../../../assets/img/icons/socials/Facebook.svg"
 import FbBlueSrc from "../../../assets/img/icons/socials/facebook-blue.svg"
 import InSrc from "../../../assets/img/icons/socials/Instagram.svg"
 import InBlueSrc from "../../../assets/img/icons/socials/instagram-blue.svg"
-import VimeoSrc from "../../../assets/img/icons/socials/vimeo.svg"
+import VimeoSrc from "../../../assets/img/icons/socials/Vimeo.svg"
 import VimeoBlueSrc from "../../../assets/img/icons/socials/vimeo-blue.svg"
 
 const Footer = () => {
