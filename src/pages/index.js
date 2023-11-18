@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-
+import { ParallaxProvider } from "react-scroll-parallax"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import HomeHero from "../components/home/hero/hero.component"
@@ -8,7 +8,6 @@ import About from "../components/home/about/about.component"
 import Pictures from "../components/home/pictures/pictures.component"
 import Team from "../components/home/team/team.component"
 import Instagram from "../components/home/instagram/instagram.component"
-import { ParallaxProvider } from "react-scroll-parallax"
 
 const Home = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
