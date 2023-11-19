@@ -5,7 +5,7 @@ import { Section } from "./photo.styles"
 
 const Photo = ({ photoArr }) => {
   photoArr = sortByDescription(photoArr)
-  console.log(photoArr)
+
   const wrapperRef = useRef(null)
 
   useEffect(() => {

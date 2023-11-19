@@ -5,7 +5,7 @@ import { motion, useAnimation } from "framer-motion"
 
 const Video = ({ videoArr }) => {
   videoArr = videoArr.map(item => item.split("==")[1].split("</p>")[0])
-  console.log(videoArr)
+
   const [isCollapsed, setIsCollapsed] = useState(false)
   const controls = useAnimation()
 
@@ -29,7 +29,7 @@ const Video = ({ videoArr }) => {
             >
               <div className="d-flex justify-content-between align-items-center">
                 <h2 className="fw-normal text-black">Vidéo</h2>
-                <div className={isCollapsed ? "" : "flipped"}>
+                <div className={!isCollapsed ? "" : "flipped"}>
                   <img className="arrow" src={ArrowSrc} alt="Flèche" />
                 </div>
               </div>
@@ -49,14 +49,14 @@ const Video = ({ videoArr }) => {
                 return (
                   <div key={index} className="col-lg-6 pb-5 mb-4">
                     <div>
-                      <div class="video-thumb">
+                      <div className="video-thumb">
                         <iframe
                           title={index}
                           width="100%"
                           height="100%"
                           src={source}
-                          allowfullscreen
-                          frameborder="0"
+                          allowFullScreen
+                          frameBorder="0"
                           allow="autoplay; fullscreen"
                         ></iframe>
                       </div>
