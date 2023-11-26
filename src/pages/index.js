@@ -74,7 +74,7 @@ const Home = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <ParallaxProvider>
         <Seo title="Agence Artistique Corinne Giguère" />
-        <HomeHero title={title} media={media} />
+        {/* <HomeHero title={title} media={media} /> */}
         <About
           missionTitle={missionTitle}
           missionSubtitle={missionSubtitle}
