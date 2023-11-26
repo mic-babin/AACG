@@ -74,23 +74,23 @@ const Home = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <ParallaxProvider>
         <Seo title="Agence Artistique Corinne Giguère" />
-        {/* <HomeHero title={title} media={media} /> */}
-        {/* <About
+        <HomeHero title={title} media={media} />
+        <About
           missionTitle={missionTitle}
           missionSubtitle={missionSubtitle}
           missionText1={missionText1}
           missionText2={missionText2}
           missionText3={missionText3}
           missionText4={missionText4}
-        /> */}
+        />
         <Pictures />
-        {/* <Team
+        <Team
           employeeTitle={employeeTitle}
           employeeText={employeeText}
           telephone={telephone}
           email={email}
-        /> */}
-        {/* <Instagram followTitle={followTitle} followText={followText} /> */}
+        />
+        <Instagram followTitle={followTitle} followText={followText} />
       </ParallaxProvider>
     </Layout>
   )
