@@ -16,7 +16,6 @@
 @import "./home.css";
 @import "./contact.css";
 @import "./animation.css";
-@import "~animate.css/animate.min";
 
 html {
   width: 100vw !important;
