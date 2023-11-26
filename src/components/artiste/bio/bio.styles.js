@@ -19,7 +19,7 @@ export const Section = styled.div`
 
   h1 {
     padding-top: 150px;
-    line-height: 180px;
+    line-height: 1.2;
     max-width: 800px;
   }
 

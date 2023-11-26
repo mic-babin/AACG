@@ -42,6 +42,11 @@ export const getCaptionString = image => {
 }
 
 export const pickRandomItems = (array, count) => {
+  if (
+    window.location.href.includes("artistes") ||
+    window.location.href.includes("voix")
+  )
+    return
   if (count > array.length) {
     throw new Error("Count is greater than the length of the array.")
   }

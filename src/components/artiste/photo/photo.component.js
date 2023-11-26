@@ -51,7 +51,7 @@ const Photo = ({ photoArr }) => {
               <GatsbyImage
                 image={getImage(image.gatsbyImage)}
                 alt={image.caption}
-                className="img-fluid w-100"
+                className="w-100"
               />
               <div className="caption">
                 <span

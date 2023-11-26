@@ -15,10 +15,9 @@ import { fadeRightBioCarouselVariants } from "../../../assets/animations/animati
 const BioCarousel = ({ imgArr }) => {
   const wrapperRef = useRef(null)
   const [images, setImages] = useState(imgArr)
+  console.log(images)
 
   useEffect(() => {
-    setImages(pickRandomItems(imgArr, 5))
-
     return () => {}
   }, [imgArr])
 

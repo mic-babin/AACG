@@ -7,26 +7,33 @@ import Seo from "../../components/seo"
 import Photo from "../../components/artiste/photo/photo.component"
 import Video from "../../components/artiste/video/video.component"
 import Audio from "../../components/artiste/audio/audio.componennt"
+import slugify from "slugify"
 
 const Artiste = ({ data }) => {
   const title = data.wpPost.title
-  const content = data.wpPost.content.split("\n\n\n\n")
+  const content = data.wpPost.content.includes("\n\n\n\n")
+    ? data.wpPost.content.split("\n\n\n\n")
+    : data.wpPost.content.split("\n")
   const slug = data.wpPost.slug
   const tags = data.wpPost.tags.nodes.map(tag => tag.name)
 
-  const bioImageArr = data.allWpMediaItem.nodes.filter(item =>
-    item.title.includes("featured")
-  )
-  const photoArr = data.allWpMediaItem.nodes.filter(item =>
-    item.title.includes("photo")
-  )
-  const audioArr = data.allWpMediaItem.nodes.filter(item =>
-    item.title.includes("audio")
+  const artistMedia = data.allWpMediaItem.nodes.filter(item =>
+    item.title.includes(slug)
   )
 
+  const bioImageArr = artistMedia.filter(item =>
+    item.title.includes("featured")
+  )
+
+  const photoArr = artistMedia.filter(item => item.title.includes("photo"))
+  const audioArr = artistMedia.filter(item => item.title.includes("audio"))
+
   const videoArr = content.filter(item => item.includes("#video"))
-  console.log(content.filter(item => item.includes("#bio")))
-  if (content.filter(item => item.includes("#bio")).lenght == 0) return ""
+  console.log(
+    content,
+    content.filter(item => item.includes("#bio"))
+  )
+
   return (
     <Layout location={""} title={title}>
       <ParallaxProvider>
@@ -38,9 +45,9 @@ const Artiste = ({ data }) => {
           bioImageArr={bioImageArr}
         />
         <div className="p-header pb-3">
-          <Audio audioArr={audioArr} />
-          <Video videoArr={videoArr} />
-          <Photo photoArr={photoArr} />
+          {audioArr.length > 0 && <Audio audioArr={audioArr} />}
+          {videoArr.length > 0 && <Video videoArr={videoArr} />}
+          {photoArr.length > 0 && <Photo photoArr={photoArr} />}
         </div>
         <Seo title={title} />
       </ParallaxProvider>
@@ -62,7 +69,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allWpMediaItem(filter: { title: { regex: "/^emmanuelle.*$/" } }) {
+    allWpMediaItem {
       nodes {
         id
         description

@@ -12,7 +12,7 @@ const Video = ({ videoArr }) => {
   const toggleCollapse = async () => {
     setIsCollapsed(!isCollapsed)
     // Use Framer Motion to animate the opening/closing of the collapsible content
-    await controls.start({ height: isCollapsed ? 0 : "auto" })
+    await controls.start({ height: !isCollapsed ? 0 : "auto" })
   }
 
   return (
@@ -29,7 +29,7 @@ const Video = ({ videoArr }) => {
             >
               <div className="d-flex justify-content-between align-items-center">
                 <h2 className="fw-normal text-black">Vidéo</h2>
-                <div className={!isCollapsed ? "" : "flipped"}>
+                <div className={isCollapsed ? "" : "flipped"}>
                   <img className="arrow" src={ArrowSrc} alt="Flèche" />
                 </div>
               </div>
@@ -37,7 +37,7 @@ const Video = ({ videoArr }) => {
           </div>
 
           <motion.div
-            initial={{ height: 0 }}
+            initial={controls}
             animate={controls}
             transition={{ duration: 0.5 }}
             style={{

@@ -14,6 +14,7 @@ import BioCarousel from "../bio-carousel/bio-carousel.component"
 const Bio = ({ content, title, slug, tags, bioImageArr }) => {
   const wrapperRef = useRef(null)
 
+  console.log(title)
   let artistTags = getArtistTags(tags, title)
 
   const socialIcons = {
@@ -33,56 +34,69 @@ const Bio = ({ content, title, slug, tags, bioImageArr }) => {
 
   const taille = content
     .filter(element => element.includes("#taille"))[0]
-    ?.split("=")[1]
-    ?.split("</p>")[0]
+    ?.split("=")
+    .filter(item => !item.includes("FR-CA"))[1]
+    .split("</")[0]
   const poids = content
     .filter(element => element.includes("#poids"))[0]
-    ?.split("=")[1]
-    ?.split("</p>")[0]
+    ?.split("=")
+    .filter(item => !item.includes("FR-CA"))[1]
+    .split("</")[0]
   const cheveux = content
     .filter(element => element.includes("#cheveux"))[0]
-    ?.split("=")[1]
-    ?.split("</p>")[0]
+    ?.split("=")
+    .filter(item => !item.includes("FR-CA"))[1]
+    .split("</")[0]
   const langues = content
-    .filter(element => element?.includes("#langues"))[0]
-    ?.split("=")[1]
-    ?.split("</p>")[0]
+    .filter(element => element.includes("#langue"))[0]
+    ?.split("=")
+    .filter(item => !item.includes("FR-CA"))[1]
+    .split("</")[0]
   const uda = content
-    .filter(element => element.includes("#UDA"))[0]
-    ?.split("=")[1]
-    ?.split("</p>")[0]
+    .filter(element => element.includes("UDA"))[0]
+    ?.split("=")
+    .filter(item => !item.includes("FR-CA"))[1]
+    .split("</")[0]
   const sartec = content
     .filter(element => element.includes("#SARTEC"))[0]
-    ?.split("=")[1]
-    ?.split("</p>")[0]
+    ?.split("=")
+    .filter(item => !item.includes("FR-CA"))[1]
+    .split("</")[0]
   const actra = content
     .filter(element => element.includes("#ACTRA"))[0]
-    ?.split("=")[1]
-    ?.split("</p>")[0]
+    ?.split("=")
+    .filter(item => !item.includes("FR-CA"))[1]
+    .split("</")[0]
   const yeux = content
     .filter(element => element.includes("#yeux"))[0]
-    ?.split("=")[1]
-    ?.split("</p>")[0]
+    ?.split("=")
+    .filter(item => !item.includes("FR-CA"))[1]
+    .split("</")[0]
   const bio = content
     .filter(element => element.includes("#bio"))[0]
-    ?.split("=")[1]
-    ?.split("</p>")[0]
+    ?.split("=")
+    .filter(item => !item.includes("FR-CA"))[1]
+    .split("</")[0]
   const cv = content
     .filter(element => element.includes("#cv"))[0]
-    ?.split("=")[1]
-    ?.split("</p>")[0]
+    ?.split("=")
+    .filter(item => !item.includes("FR-CA"))[1]
+    .split("</")[0]
   const instagram = content
     .filter(element => element.includes("#instagram"))[0]
-    ?.split("=")[1]
-    ?.split("</p>")[0]
+    ?.split("=")
+    .filter(item => !item.includes("FR-CA"))[1]
+    .split("</")[0]
   const facebook = content
     .filter(element => element.includes("#facebook"))[0]
-    ?.split("=")[1]
-    ?.split("</p>")[0]
+    ?.split("=")
+    .filter(item => !item.includes("FR-CA"))[1]
+    .split("</")[0]
   const vimeo = content
     .filter(element => element.includes("#vimeo"))[0]
-    ?.split("=")[1]
-    ?.split("</p>")[0]
+    ?.split("=")
+    .filter(item => !item.includes("FR-CA"))[1]
+    .split("</")[0]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -145,6 +159,7 @@ const Bio = ({ content, title, slug, tags, bioImageArr }) => {
                       }
                     >
                       <span dangerouslySetInnerHTML={{ __html: word }} />
+                      &nbsp;
                     </span>
                   ))}
                 </span>
@@ -233,7 +248,7 @@ const Bio = ({ content, title, slug, tags, bioImageArr }) => {
               </div>
             </div>
             <div className="col-lg-6 p-0 p-md-2 mt-5 mt-lg-0">
-              <BioCarousel imgArr={bioImageArr} />
+              {bioImageArr.length > 0 && <BioCarousel imgArr={bioImageArr} />}
             </div>
           </div>
           <div className="row">
