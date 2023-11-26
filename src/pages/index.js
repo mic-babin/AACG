@@ -90,7 +90,7 @@ const Home = ({ data, location }) => {
           telephone={telephone}
           email={email}
         />
-        <Instagram followTitle={followTitle} followText={followText} />
+        {/* <Instagram followTitle={followTitle} followText={followText} /> */}
       </ParallaxProvider>
     </Layout>
   )
