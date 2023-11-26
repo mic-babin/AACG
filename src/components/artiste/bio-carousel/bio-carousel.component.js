@@ -12,10 +12,11 @@ import {
 import { motion } from "framer-motion"
 import { fadeRightBioCarouselVariants } from "../../../assets/animations/animations"
 
-const BioCarousel = ({ imgArr }) => {
+const BioCarousel = props => {
+  const imgArr = props.imgArr
   const wrapperRef = useRef(null)
   const [images, setImages] = useState(imgArr)
-  console.log(images)
+  console.log(this)
 
   useEffect(() => {
     return () => {}
@@ -40,6 +41,7 @@ const BioCarousel = ({ imgArr }) => {
             autoPlaySpeed={customOptions.autoPlaySpeed}
             showDots={true}
             customDot={<CustomDot />}
+            ssr={true}
           >
             {images.map((image, index) => (
               <div key={image.id + index} className="custom-height-bio pb-5">

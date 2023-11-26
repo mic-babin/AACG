@@ -61,6 +61,7 @@ const HeroCarousel = ({ heroArr }) => {
             autoPlaySpeed={customOptions.autoPlaySpeed}
             showDots={true}
             customDot={<CustomDot />}
+            ssr={true}
           >
             {images.map((image, index) => (
               <div key={image.id + index} className="custom-height pb-5">
