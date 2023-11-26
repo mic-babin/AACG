@@ -1,0 +1,44 @@
+.home-hero-wrapper {
+  background: var(--teal);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-y: visible;
+}
+
+.hero-cta {
+  transform: translateX(-405px);
+}
+
+.hero-cta span {
+  transition: all var(--short-tran) ease-in;
+  font-size: 1.25rem;
+}
+
+.hero-cta::before {
+  content: "";
+  background-color: var(--bg-contrast);
+  height: 1px;
+  width: 400px;
+  transform: translateX(-20px);
+}
+
+.hero-cta:hover span {
+  color: var(--main-color);
+  transition: all var(--short-tran) ease-in;
+}
+
+.hero-cta:hover svg {
+  fill: var(--main-color);
+  transition: all var(--short-tran) ease-in;
+}
+
+.pictures-wrapper {
+  background-color: #dddddd;
+  height: 120vh;
+}
+
+svg {
+  fill: var(--bg-contrast);
+  transition: all var(--short-tran) ease-in;
+}

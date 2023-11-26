@@ -1,56 +1,41 @@
-.btn-hover {
-  &:hover {
-    P.small {
-      font-weight: bolder !important;
-    }
+.btn-hover:hover p.small {
+  font-weight: bolder !important;
+}
+
+.u-line::after {
+  content: "";
+  border-bottom: 0.5px solid #838383;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.btn-hover:hover .u-line::after {
+  animation-name: underline;
+  animation-duration: 0.5s;
+  transform-origin: left;
+}
+
+@keyframes underline {
+  0% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  50% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+  51% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: left;
   }
 }
 
-.u-line {
-  &::after {
-    content: "";
-    border-bottom: 0.5px solid #838383;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-  }
-}
-.btn-hover:hover {
-  &:hover {
-    p.small {
-      font-weight: bolder !important;
-    }
-  }
-  .u-line {
-    &::after {
-      animation-name: underline;
-      animation-duration: 0.5s;
-      transform-origin: left;
-    }
-  }
-
-  @keyframes underline {
-    0% {
-      transform: scaleX(1);
-      transform-origin: right;
-    }
-    50% {
-      transform: scaleX(0);
-      transform-origin: right;
-    }
-    51% {
-      transform: scaleX(0);
-      transform-origin: left;
-    }
-    100% {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
-  }
-}
-
-/* Animation */
 .animated {
   animation-duration: 1s;
   animation-fill-mode: both;
@@ -59,10 +44,10 @@
 }
 
 .fadeInUp {
-  // opacity: 0;
   animation-name: fadeInUp;
   -webkit-animation-name: fadeInUp;
 }
+
 .enlargeWidth {
   opacity: 0;
   animation-name: enlargeWidth;
@@ -140,14 +125,13 @@
 
   to {
     width: 100%;
-
     transform-origin: center;
     opacity: 1;
   }
 }
 
 .delay-0 {
-  animation-delay: 0.5;
+  animation-delay: 0.5s;
 }
 .delay-1 {
   animation-delay: 0.55s;
@@ -189,7 +173,7 @@
   animation-delay: 1.15s;
 }
 .delay-14 {
-  animation-delay: 01.2s;
+  animation-delay: 1.2s;
 }
 .delay-15 {
   animation-delay: 1.25s;

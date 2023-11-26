@@ -43,7 +43,7 @@ export const Wrapper = styled.div`
     border-radius: 4px;
     outline: 0;
     background-color: #ffffff;
-    // font-family: $font-secondary !important;
+    // font-family: "Poppins", sans-serif !important;
     font-weight: 500;
     font-size: 13px !important;
     -webkit-appearance: none;
