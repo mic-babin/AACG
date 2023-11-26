@@ -11,9 +11,12 @@ import slugify from "slugify"
 
 const Artiste = ({ data }) => {
   const title = data.wpPost.title
-  const content = data.wpPost.content.includes("\n\n\n\n")
-    ? data.wpPost.content.split("\n\n\n\n")
-    : data.wpPost.content.split("\n")
+
+  const content = data.wpPost.content
+    ? data.wpPost.content.includes("\n\n\n\n")
+      ? data.wpPost.content.split("\n\n\n\n")
+      : data.wpPost.content.split("\n")
+    : []
   const slug = data.wpPost.slug
   const tags = data.wpPost.tags.nodes.map(tag => tag.name)
 
@@ -29,10 +32,6 @@ const Artiste = ({ data }) => {
   const audioArr = artistMedia.filter(item => item.title.includes("audio"))
 
   const videoArr = content.filter(item => item.includes("#video"))
-  console.log(
-    content,
-    content.filter(item => item.includes("#bio"))
-  )
 
   return (
     <Layout location={""} title={title}>
