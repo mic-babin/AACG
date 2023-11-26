@@ -6,7 +6,7 @@ import Header from "./navigation/header/header.component"
 import "../css/normalize.css"
 
 // custom CSS styles
-import "../assets/styles/style.scss"
+import "../assets/styles/style.css"
 
 const Layout = ({ isHomePage, children }) => {
   const {
