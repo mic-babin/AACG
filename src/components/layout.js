@@ -1,8 +1,12 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
-import { ParallaxProvider } from "react-scroll-parallax"
+import { useStaticQuery, graphql } from "gatsby"
 import Footer from "./navigation/footer/footer.component"
 import Header from "./navigation/header/header.component"
+// normalize CSS across browsers
+import "./src/css/normalize.css"
+
+// custom CSS styles
+import "./src/assets/styles/style.scss"
 
 const Layout = ({ isHomePage, children }) => {
   const {
