@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react"
-import AudioPlayer from "react-h5-audio-player"
-import "react-h5-audio-player/lib/styles.css"
+// import AudioPlayer from "react-h5-audio-player"
+// import "react-h5-audio-player/lib/styles.css"
 import ArrowSrc from "../../../assets/img/icons/fleche-right.svg"
 import PlaySrc from "../../../assets/img/icons/play.svg"
 import PauseSrc from "../../../assets/img/icons/pause.svg"
@@ -68,13 +68,13 @@ const Player = ({ audio }) => {
             ),
           }}
         ></p>
-        <AudioPlayer
+        {/* <AudioPlayer
           ref={audioPlayerRef}
           src={audio.mediaItemUrl}
           controls={false}
           onPlay={e => console.log("onPlay")}
           showJumpControls={false}
-        />
+        /> */}
 
         <div className="d-flex justify-content-between">
           <div>
